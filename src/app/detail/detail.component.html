@@ -1,0 +1,62 @@
+<div  *ngFor="let drink of drinks" class="container mt-2">
+    <div class="row">
+        <div class="col-5">
+            <h2 class="fw-bolder">Drink</h2>
+            <img [src]="drink.strDrinkThumb" class="mw-100 rounded-3" width="350px" height="300px" alt="drink image">
+        </div>
+        <div class="col-7">
+            <h2 class="fw-bolder">Ingredienti</h2>
+            <ul class="list-unstyled d-flex flex-wrap justify-content-evenly">
+                <li>
+                    <figure *ngIf="drink.strIngredient1 !== null" class="text-center m-2">
+                        <img src="https://www.thecocktaildb.com/images/ingredients/{{ drink.strIngredient1 }}-Small.png" alt="...">
+                        <figcaption>{{ drink.strIngredient1 }} : {{ drink.strMeasure1 }}</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure *ngIf="drink.strIngredient2 !== null" class="text-center m-2">
+                        <img src="https://www.thecocktaildb.com/images/ingredients/{{ drink.strIngredient2 }}-Small.png" alt="...">
+                        <figcaption>{{ drink.strIngredient2 }} : {{ drink.strMeasure2 }}</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure *ngIf="drink.strIngredient3 !== null" class="text-center m-2">
+                        <img src="https://www.thecocktaildb.com/images/ingredients/{{ drink.strIngredient3 }}-Small.png" alt="...">
+                        <figcaption>{{ drink.strIngredient3 }} : {{ drink.strMeasure3 }}</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure *ngIf="drink.strIngredient4 !== null" class="text-center m-2">
+                        <img src="https://www.thecocktaildb.com/images/ingredients/{{ drink.strIngredient4 }}-Small.png" alt="...">
+                        <figcaption>{{ drink.strIngredient4 }} : {{ drink.strMeasure4 }}</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure *ngIf="drink.strIngredient5 !== null" class="text-center m-2">
+                        <img src="https://www.thecocktaildb.com/images/ingredients/{{ drink.strIngredient5 }}-Small.png" alt="...">
+                        <figcaption>{{ drink.strIngredient5 }} : {{ drink.strMeasure5 }}</figcaption>
+                    </figure>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<div *ngFor="let drink of drinks" class="text-center">
+    <h2 class="fw-bolder">Istruzioni</h2>
+    <img src="https://www.thecocktaildb.com/images/icons/flags/shiny/32/gb.png" alt="" (click)="translate('en')" class="me-1">
+    <img src="https://www.thecocktaildb.com/images/icons/flags/shiny/32/de.png" alt="" (click)="translate('de')" class="me-1">
+    <img src="https://www.thecocktaildb.com/images/icons/flags/shiny/32/it.png" alt="" (click)="translate('it')" class="me-1">
+    <img src="https://www.thecocktaildb.com/images/icons/flags/shiny/32/fr.png" alt="" (click)="translate('fr')" class="me-1">
+    <img src="https://www.thecocktaildb.com/images/icons/flags/shiny/32/es.png" alt="" (click)="translate('es')" class="">
+    
+    <p *ngIf="langIstr == 'en'" class="fs-5"> {{ drink.strInstructions ? drink.strInstructions : "Sorry! Description not available"}} </p>
+    <p *ngIf="langIstr == 'de'" class="fs-5"> {{ drink.strInstructionsDE ? drink.strInstructionsDE : "Sorry! Description not available"}} </p>
+    <p *ngIf="langIstr == 'it'" class="fs-5"> {{ drink.strInstructionsIT ? drink.strInstructionsIT : "Sorry! Description not available"}} </p>
+    <p *ngIf="langIstr == 'fr'" class="fs-5"> {{ drink.strInstructionsFR ? drink.strInstructionsFR : "Sorry! Description not available"}} </p>
+    <p *ngIf="langIstr == 'es'" class="fs-5"> {{ drink.strInstructionsES ? drink.strInstructionsES : "Sorry! Description not available"}} </p>
+    <h2 class="fw-bolder">Glass</h2>
+    <p class="fs-5">{{ drink.strGlass }}</p>
+    <button routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" class="btn btn-dark rounded-pill mb-2">Return List</button>
+</div>

@@ -1,0 +1,19 @@
+<h3 class="m-3 text-center">Listed by {{titleLetter}}:</h3>
+
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="card m-2 rounded-4" style="width: 18rem;" *ngFor="let drink of drinks">
+      <img [src]="drink.strDrinkThumb" class="card-img-top border border-2 border-dark rounded-circle mt-2" alt="...">
+      <div class="card-body d-flex flex-column align-items-center">
+        <h5 class="card-title">{{ drink.strDrink }}</h5>
+        <p class="card-text text-center fs-5">{{ drink.strCategory }}</p>
+        <p class="card-text text-center fs-6">{{ drink.strAlcoholic }}</p>
+        <a routerLink="/detail/:idDrink" routerLinkActive="active" ariaCurrentWhenActive="page" href="#" class="btn btn-dark rounded-pill" (click)="viewDetail(drink.idDrink)">Detail</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="border rounded-4 p-2 text-center">
+  <button *ngFor="let letter of alphabet as string" (click)="searchByFirstLetter(letter)" class="btn btn-outline-dark m-1">{{letter}}</button>
+</div>
